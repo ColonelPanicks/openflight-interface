@@ -1,0 +1,13 @@
+meta:
+    name: node01
+    ip: 10.10.1.1
+    gw: 10.10.0.1
+    bmc_ip: 10.11.1.1
+    bmc_user: admin
+    bmc_pass: password
+    groups: group1,group2,group3
+content:
+    kickstart: /var/lib/underware/clusters/mycluster/var/rendered/kickstart/node/node01/platform/node01.ks
+    pxe: /var/lib/underware/clusters/mycluster/var/rendered/kickstart/node/node01/platform/pxelinux.cfg/pxe_bios
+    aws: /var/lib/underware/clusters/mycluster/var/rendered/aws/node/node01/platform/node01.yaml
+    azure: /var/lib/underware/clusters/mycluster/var/rendered/azure/node/node01/platform/node01.json
