@@ -1,0 +1,62 @@
+domain:
+    meta:
+        name: mycluster
+        bmc_user: admin
+        bmc_pass: pass
+        gateway_ip: 10.10.0.1
+    content:
+        aws:
+            - /var/lib/underware/clusters/mycluster/var/rendered/aws/domain/platform/domain.yaml
+            - /var/lib/underware/clusters/mycluster/var/rendered/aws/domain/platform/domainandallnodes.yaml
+        azure:
+            - /var/lib/underware/clusters/mycluster/var/rendered/azure/domain/platform/domain.json
+            - /var/lib/underware/clusters/mycluster/var/rendered/azure/domain/platform/domainandallnodes.json
+group:
+    login:
+        meta:
+            name: login
+        content:
+            aws:
+                - /var/lib/underware/clusters/mycluster/var/rendered/aws/group/login/platform/login.yaml
+            azure:
+                - /var/lib/underware/clusters/mycluster/var/rendered/azure/group/login/platform/login.json
+    nodes:
+        meta:
+            name: nodes
+        content:
+            aws:
+                - /var/lib/underware/clusters/mycluster/var/rendered/aws/group/nodes/platform/nodes.yaml
+            azure:
+                - /var/lib/underware/clusters/mycluster/var/rendered/azure/group/nodes/platform/nodes.json
+
+node:
+    node01:
+        meta:
+            name: node01
+            build_ip: 10.10.1.1
+            gw: 10.10.0.1
+            bmc_ip: 10.11.1.1
+            bmc_user: admin
+            bmc_pass: password
+            primary_group: nodes
+            secondary_groups: group1,group2
+        content:
+            kickstart: /var/lib/underware/clusters/mycluster/var/rendered/kickstart/node/node01/platform/node01.ks
+            pxe: /var/lib/underware/clusters/mycluster/var/rendered/kickstart/node/node01/platform/pxelinux.cfg/pxe_bios
+            aws: /var/lib/underware/clusters/mycluster/var/rendered/aws/node/node01/platform/node01.yaml
+            azure: /var/lib/underware/clusters/mycluster/var/rendered/azure/node/node01/platform/node01.json
+    node02:
+        meta:
+            name: node02
+            build_ip: 10.10.1.2
+            gw: 10.10.0.1
+            bmc_ip: 10.11.1.2
+            bmc_user: admin
+            bmc_pass: password
+            primary_group: nodes
+            secondary_groups: group1,group2
+        content:
+            kickstart: /var/lib/underware/clusters/mycluster/var/rendered/kickstart/node/node02/platform/node02.ks
+            pxe: /var/lib/underware/clusters/mycluster/var/rendered/kickstart/node/node02/platform/pxelinux.cfg/pxe_bios
+            aws: /var/lib/underware/clusters/mycluster/var/rendered/aws/node/node02/platform/node02.yaml
+            azure: /var/lib/underware/clusters/mycluster/var/rendered/azure/node/node02/platform/node02.json
