@@ -2,7 +2,7 @@ mycluster:
     group1:
         node01:
             meta:
-                ip: 10.10.1.1
+                build_ip: 10.10.1.1
                 gw: 10.10.0.1
                 bmc_ip: 10.11.1.1
                 bmc_user: admin
@@ -14,7 +14,7 @@ mycluster:
                 azure: /var/lib/underware/clusters/mycluster/var/rendered/azure/node/node01/platform/node01.json
         node02:
             meta:
-                ip: 10.10.1.2
+                build_ip: 10.10.1.2
                 gw: 10.10.0.1
                 bmc_ip: 10.11.1.2
                 bmc_user: admin
